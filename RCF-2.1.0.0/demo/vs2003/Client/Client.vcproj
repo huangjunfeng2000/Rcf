@@ -70,7 +70,7 @@
 				AdditionalDependencies="RCF.lib"
 				OutputFile="$(OutDir)/Client.exe"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="$(OutDir)"
+				AdditionalLibraryDirectories="&quot;$(OutDir)&quot;;&quot;E:\source\boost_1_54_0\lib32-msvc-8.0&quot;"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/Client.pdb"
 				SubSystem="1"
@@ -203,6 +203,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\CNetFile.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\MyServiceImpl.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\ServerAPI.cpp"
 				>
 			</File>
@@ -217,7 +225,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\CNetFile.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\MyService.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\MyServiceImpl.h"
 				>
 			</File>
 			<File

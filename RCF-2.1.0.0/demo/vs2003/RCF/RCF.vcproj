@@ -70,7 +70,7 @@
 				AdditionalDependencies="ws2_32.lib"
 				OutputFile="$(OutDir)/RCF.dll"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories=".."
+				AdditionalLibraryDirectories="..;BOOST_LIBRARYDIR;&quot;E:\source\boost_1_54_0\lib32-msvc-8.0&quot;"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/RCF.pdb"
 				SubSystem="1"

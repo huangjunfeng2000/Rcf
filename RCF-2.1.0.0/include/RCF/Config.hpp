@@ -81,7 +81,7 @@
 //#define RCF_FEATURE_LOCALSOCKET         0
 //#define RCF_FEATURE_TCP                 1
 //#define RCF_FEATURE_SF                  1
-//#define RCF_FEATURE_BOOST_SERIALIZATION 0
+//#define RCF_FEATURE_BOOST_SERIALIZATION 1
 
 // RCF_FEATURE_LOCALSOCKET not supported on Windows platforms.
 #if defined(RCF_FEATURE_LOCALSOCKET) && defined(BOOST_WINDOWS)

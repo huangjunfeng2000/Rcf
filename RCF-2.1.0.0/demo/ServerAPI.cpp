@@ -13,22 +13,11 @@
 #include <RCF/Asio.hpp>
 #include <RCF/Win32NamedPipeEndpoint.hpp>
 #include <RCF/UdpServerTransport.hpp>
+#include "MyServiceImpl.h"
+#include "CNetFile.h"
 
 namespace MQRPC
 {
-class MyServiceImpl
-{
-public:
-	// Reverses the order of strings in the vector.
-	void reverse(std::vector<std::string> &v)
-	{
-		std::cout << "Reversing a vector of strings...\n";
-		std::vector<std::string> w;
-		std::copy(v.rbegin(), v.rend(), std::back_inserter(w));
-		v.swap(w);
-	}
-};
-
 class RpcServer
 {
 public:

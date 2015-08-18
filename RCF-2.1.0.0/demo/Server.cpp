@@ -14,18 +14,18 @@
 //#include <RCF/UdpServerTransport.hpp>
 
 #include "ServerAPI.h"
-class MyServiceImpl
-{
-public:
-    // Reverses the order of strings in the vector.
-    void reverse(std::vector<std::string> &v)
-    {
-        std::cout << "Reversing a vector of strings...\n";
-        std::vector<std::string> w;
-        std::copy(v.rbegin(), v.rend(), std::back_inserter(w));
-        v.swap(w);
-    }
-};
+//class MyServiceImpl
+//{
+//public:
+//    // Reverses the order of strings in the vector.
+//    void reverse(std::vector<std::string> &v)
+//    {
+//        std::cout << "Reversing a vector of strings...\n";
+//        std::vector<std::string> w;
+//        std::copy(v.rbegin(), v.rend(), std::back_inserter(w));
+//        v.swap(w);
+//    }
+//};
 
 
 void getCommand(std::vector<unsigned char> &vecCommand)

@@ -871,7 +871,7 @@ return 1;
 
 	bool MQClientTransport::isConnected()
 	{
-		return mSock != -1;
+		return true;//mSock != -1;
 	}
 
 	void MQClientTransport::disconnect(unsigned int timeoutMs)
