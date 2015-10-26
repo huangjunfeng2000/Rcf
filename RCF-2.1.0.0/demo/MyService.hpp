@@ -16,6 +16,7 @@ RCF_BEGIN(MyService, "MyService")
 	RCF_METHOD_R2(bool, fopen, const std::string &, const std::string &);
 	RCF_METHOD_R3(bool, fgets, std::vector<unsigned char> &, int , CNetFile &);
 	RCF_METHOD_R4(size_t, fread, std::vector<unsigned char> &, size_t, size_t, CNetFile &);
+	RCF_METHOD_R3(int, _fseeki64, CNetFile &, __int64, int);
 
 
 RCF_END(MyService);

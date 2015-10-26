@@ -2,14 +2,22 @@
 #pragma once
 #include "stdio.h"
 #include <string>
+#include <vector> 
+#include <memory>
 //#include <boost/serialization/string.hpp>
 //
 //#include <boost/serialization/map.hpp>
 //#include <boost/serialization/vector.hpp>
+#include <boost/shared_ptr.hpp>
 
 #include <SF/string.hpp>
 #include <SF/map.hpp>
 #include <SF/vector.hpp>
+#include <SF/shared_ptr.hpp> 
+
+
+#include <SF/auto_ptr.hpp> 
+//#include <SF/shared_ptr_std.hpp> 
 
 class CNetFile
 {
@@ -28,8 +36,11 @@ public:
 	std::string m_strFileName;
 	std::string m_strMode;
 	FILE *m_pFile;
-	bool m_bEof;
-	int m_iPos;
+	int m_bEof;
+	__int64 m_iPos;
+	std::auto_ptr<CNetFile> m_ptrVal;
+	std::vector<boost::shared_ptr<CNetFile> > m_vecPtrVal;
+
 };
 
 //namespace boost{

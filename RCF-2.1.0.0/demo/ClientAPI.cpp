@@ -13,29 +13,10 @@
 
 #include "ServerAPI.h"
 #include "CNetFile.h"
-//class CNetFile
-//{
-//public:
-//	CNetFile() : m_pFile(NULL), m_bEof(false), m_iPos(0) {}
-//	~CNetFile(){}
-//	CNetFile(FILE *fp) : m_pFile(fp), m_bEof(false), m_iPos(0)
-//	{
-//	}
-//	CNetFile(const char * _Filename, const char * _Mode, bool bEof) : 
-//	m_strFileName(_Filename), m_strMode(_Mode), m_bEof(bEof), m_iPos(0)
-//	{
-//	}
-//public:
-//	std::string m_strFileName;
-//	std::string m_strMode;
-//	FILE *m_pFile;
-//	bool m_bEof;
-//	int m_iPos;
-//};
 
+#pragma warning (disable: 4996)
 namespace MQRPC
 {
-
 	struct MQIOManager
 	{
 		bool SendCommand(void *pStr, size_t iSize)
@@ -172,6 +153,33 @@ namespace MQRPC
 			memcpy(_DstBuf, &vecResult[0], vecResult.size());
 		}
 		return iResult;
+	}
+
+	int fopen_s_net(CNetFile ** _File, const char * _Filename, const char * _Mode)
+	{
+		*_File = fopen_net(_Filename, _Mode);
+		return NULL != *_File ? 0 : -1; 
+	}
+
+	int _fseeki64_net(CNetFile * _File, __int64 _Offset, int _Origin)
+	{
+		if (!IsNetFile())
+			return _fseeki64(_File->m_pFile, _Offset, _Origin);
+		int iResult = RpcClient::Instance()->m_pClient->_fseeki64(*_File, _Offset, _Origin);
+		return iResult;
+	}
+
+	__int64 _ftelli64_net(CNetFile * _File)
+	{
+		if (!IsNetFile())
+			return _ftelli64(_File->m_pFile);
+		return _File->m_iPos;
+	}
+
+	int fgetpos_net(CNetFile *_File, fpos_t *_Pos)
+	{
+		*_Pos = _ftelli64_net(_File);
+		return 0;
 	}
 
 }

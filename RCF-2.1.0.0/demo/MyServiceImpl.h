@@ -14,8 +14,9 @@ public:
 	bool fopen(const std::string & _Filename, const std::string & _Mode);
 	bool fgets(std::vector<unsigned char> &_Buf, int _MaxCount, CNetFile & _File);
 	size_t fread(std::vector<unsigned char> &_Buf, size_t _ElementSize, size_t _Count, CNetFile & _File);
-
+	int _fseeki64(CNetFile &_File, __int64 _Offset, int _Origin);
 };
+
 
 
 }

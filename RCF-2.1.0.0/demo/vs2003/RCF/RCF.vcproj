@@ -70,7 +70,7 @@
 				AdditionalDependencies="ws2_32.lib"
 				OutputFile="$(OutDir)/RCF.dll"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..;BOOST_LIBRARYDIR;&quot;E:\source\boost_1_54_0\lib32-msvc-8.0&quot;"
+				AdditionalLibraryDirectories="..;BOOST_LIBRARYDIR"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/RCF.pdb"
 				SubSystem="1"
@@ -126,7 +126,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\include;C:\boost_1_49_0"
+				AdditionalIncludeDirectories="..\..\..\include;C:\boost_1_49_0;&quot;$(BOOST_INCLUDEDIR)&quot;"
 				PreprocessorDefinitions="RCF_BUILD_DLL;WIN32;NDEBUG;_CONSOLE;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x0500"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="true"

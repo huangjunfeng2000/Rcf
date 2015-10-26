@@ -60,11 +60,28 @@ int mainTest()
 			{
 				char strLine[1025];
 				memset(strLine, 0, 1025);
+				fp->m_ptrVal.reset(new CNetFile());
+				fp->m_vecPtrVal.push_back(boost::shared_ptr<CNetFile>(new CNetFile()));
+				fp->m_vecPtrVal.push_back(boost::shared_ptr<CNetFile>(new CNetFile()));
+
+				fp->m_ptrVal->m_bEof = true;
 				size_t iRes = MQRPC::fread_net(strLine, 10, 200, fp);
 				char *strResult = MQRPC::fgets_net(strLine, 1024, fp);
 				
 				MQRPC::fclose_net(fp);
 			}
+			CNetFile *fp2 = NULL;
+			if (0 == MQRPC::fopen_s_net(&fp2, "c:\\path.txt", "rt"))
+			{
+				MQRPC::_fseeki64_net(fp2, 10, SEEK_SET);
+				char strLine[1025];
+				memset(strLine, 0, 1025);
+				size_t iRes = MQRPC::fread_net(strLine, 10, 20, fp2);
+				__int64 iPos = MQRPC::_ftelli64_net(fp2);
+				assert(iPos == 10*20 + 10);
+				MQRPC::fclose_net(fp2);
+			}
+
 			MQRPC::UnintializeClient();
 			MQRPC::UnintializeServer();
 		}

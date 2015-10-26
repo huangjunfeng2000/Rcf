@@ -2,6 +2,7 @@
 #include "CNetFile.h"
 
 
+
 CNetFile::CNetFile() : m_pFile(NULL), m_bEof(false), m_iPos(0) 
 {
 
@@ -21,5 +22,5 @@ CNetFile::CNetFile(const char * _Filename, const char * _Mode, bool bEof) :
 
 void serialize(SF::Archive &ar, CNetFile &x)
 {
-	ar & x.m_strFileName & x.m_strMode & x.m_bEof & x.m_iPos;
+	ar & x.m_strFileName & x.m_strMode & x.m_bEof & x.m_iPos & x.m_ptrVal & x.m_vecPtrVal;
 }
